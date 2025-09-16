@@ -1,0 +1,38 @@
+body {
+  background-color: #333;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: black;
+  margin-left: 120px; /* added px */
+}
+
+button {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px; /* added px */
+  width: 260px;
+  height: 50px;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#myDay {
+  margin-top: 100px; /* added px */
+}
+
+button:hover {
+  background-color: red;
+}
+
+#calendar {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+}
