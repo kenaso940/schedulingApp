@@ -36,3 +36,7 @@ button:hover {
   border-radius: 8px;
   padding: 10px;
 }
+
+.active {
+  background-color: red;
+}
