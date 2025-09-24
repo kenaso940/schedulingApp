@@ -40,3 +40,11 @@ button:hover {
 .active {
   background-color: red;
 }
+
+#completedTasks {
+  border: 2px dashed gray;
+  min-height: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  background: #f9f9f9;
+}
