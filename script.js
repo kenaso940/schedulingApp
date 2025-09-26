@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
   const completedBox = document.getElementById("completedTasks").querySelector("#completedList");
 
+
   if (calendarEl) {
     // Load saved events from localStorage
     const savedEvents = JSON.parse(localStorage.getItem("events")) || [];
@@ -10,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
       else if (ev.difficulty === "Medium") ev.color = "orange";
       else ev.color = "green";
     });
+
+
 
     // Load saved completed tasks
     const savedCompleted = JSON.parse(localStorage.getItem("completedTasks")) || [];
@@ -113,6 +116,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+
+    
+
+  
+
     calendar.render();
   }
 });
+
+

@@ -20,6 +20,32 @@
     </div>
 
 
+
+    <div id="deletedItems" >
+      <h2>Delete Task</h2>
+      <ul id = "deletedList"></ul>
+    </div>
+
+
+    
+    
+    <button onclick="clearList()" class="clearComplete">Clear</button>
+    <script>
+
+       function clearList() {
+        document.getElementById("completedList").innerHTML = "";
+        localStorage.removeItem("completedTasks");
+        
+
+  }
+
+    // Save completed task to localStorage                        
+     
+     
+    </script>
+  
+
+
     <script src="script.js"></script>
 </body>
 </html> 

@@ -8,7 +8,7 @@ h1 {
   margin-left: 120px; /* added px */
 }
 
-button {
+.my-btn {
   color: black;
   display: flex;
   flex-direction: row;
@@ -25,7 +25,7 @@ button {
   margin-top: 100px; /* added px */
 }
 
-button:hover {
+.my-btn:hover {
   background-color: red;
 }
 
@@ -47,4 +47,38 @@ button:hover {
   margin: 20px auto;
   padding: 10px;
   background: #f9f9f9;
+  width: 500px;
+  float: left;
+
 }
+
+.clearComplete {
+  margin-top: 9px;
+  align-self: flex-start; /* this moves it to the left if parent is flex */
+  margin-top: 220px;
+  margin-left: -490px;
+  width: 260px;
+  height: 50px;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.clearComplete:hover{
+  background-color: red;
+}
+
+#deletedItems {
+  border: 2px dashed gray;
+  min-height: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  background: #f9f9f9;
+  width: 500px;
+  float: right;
+  margin-left: 200;
+
+}
+
+
