@@ -1,6 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
+  
   const completedBox = document.getElementById("completedTasks").querySelector("#completedList");
+  const deletedBox = document.getElementById("deletedItems").querySelector("#deletedList");
 
 
   if (calendarEl) {
@@ -79,14 +82,15 @@ document.addEventListener("DOMContentLoaded", function () {
       },
 
       // Drag-and-drop to completed box
-      eventDragStop: function (info) {
+      eventDragStop: function (info) 
+      {
         const rect = completedBox.parentElement.getBoundingClientRect();
-        if (
-          info.jsEvent.clientX >= rect.left &&
-          info.jsEvent.clientX <= rect.right &&
-          info.jsEvent.clientY >= rect.top &&
-          info.jsEvent.clientY <= rect.bottom
-        ) {
+        const rect2 = deletedBox.parentElement.getBoundingClientRect();
+
+        
+        if ( info.jsEvent.clientX >= rect.left && info.jsEvent.clientX <= rect.right &&  info.jsEvent.clientY >= rect.top && info.jsEvent.clientY <= rect.bottom)
+ 
+         {
           // Remove from calendar
           info.event.remove();
 
@@ -113,16 +117,64 @@ document.addEventListener("DOMContentLoaded", function () {
           }));
           localStorage.setItem("events", JSON.stringify(currentEvents));
         }
+        else if (info.jsEvent.clientX >= rect2.left && info.jsEvent.clientX <= rect2.right &&  info.jsEvent.clientY >= rect2.top && info.jsEvent.clientY <= rect2.bottom)
+        {
+          // Remove from calendar
+          info.event.remove();
+
+           //add to deleted tasks list
+          const dLi = document.createElement("dLi");
+          dLi.textContent = `${info.event.title} (${info.event.extendedProps.difficulty})`;
+          deletedBox.appendChild(dLi);
+
+          // Save deleted task to localStorage
+          let deletedTasks = JSON.parse(localStorage.getItem("deletedTasks")) || [];
+          deletedTasks.push({
+          title: info.event.title,
+          difficulty: info.event.extendedProps.difficulty
+
+           });
+           localStorage.setItem("deletedTasks", JSON.stringify(deletedTasks));
+
+          // Update calendar events in localStorage
+          const currentEvents = calendar.getEvents().map(ev => ({
+            title: ev.title,
+            start: ev.startStr,
+            end: ev.endStr,
+            allDay: ev.allDay,
+            difficulty: ev.extendedProps.difficulty
+          }));
+          localStorage.setItem("events", JSON.stringify(currentEvents));
+        }
       }
+
     });
 
 
-    
 
-  
+
+
+       
+      //     eventDragStop: function (info) 
+      //  {
+        
+      //   if ( info.jsEvent.clientX >= rect2.left && info.jsEvent.clientX <= rect2.right &&  info.jsEvent.clientY >= rect2.top && info.jsEvent.clientY <= rect2.bottom)
+ 
+      //    {
+          
+
+         
+
+         
+         
 
     calendar.render();
   }
 });
 
 
+          
+         
+
+
+``
